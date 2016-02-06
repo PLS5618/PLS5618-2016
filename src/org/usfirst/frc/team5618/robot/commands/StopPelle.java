@@ -1,18 +1,17 @@
-
 package org.usfirst.frc.team5618.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team5618.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ExampleCommand extends Command {
+public class StopPelle extends Command {
 
-    public ExampleCommand() {
+    public StopPelle() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.exampleSubsystem);
+        requires(Robot.pelle);
     }
 
     // Called just before this Command runs the first time
@@ -21,6 +20,7 @@ public class ExampleCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.pelle.ballonStop();
     }
 
     // Make this return true when this Command no longer needs to run execute()
