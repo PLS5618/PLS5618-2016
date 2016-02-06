@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Reculer extends Command {
 
 	int time = 0;
+	boolean finish = false;
 	
     public Reculer() {
     }
@@ -33,14 +34,17 @@ public class Reculer extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Timer.delay(1);
     	Robot.chassis.reculer();
     	time++;
-    	Timer.delay(1);
+    	if(time >= 3) {
+    		finish = true;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return time >= 2;
+        return finish;
     }
 
     // Called once after isFinished returns true
