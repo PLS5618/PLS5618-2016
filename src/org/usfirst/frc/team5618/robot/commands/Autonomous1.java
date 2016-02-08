@@ -26,6 +26,7 @@ public class Autonomous1 extends CommandGroup {
         // arm.
     	
     	addSequential(new Reculer());
+    	addSequential(new Tourner());
     	
     }
 }
