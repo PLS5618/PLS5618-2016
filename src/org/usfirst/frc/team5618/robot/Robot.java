@@ -16,6 +16,9 @@ import org.usfirst.frc.team5618.robot.subsystems.Bras;
 import org.usfirst.frc.team5618.robot.subsystems.Chassis;
 import org.usfirst.frc.team5618.robot.subsystems.Pelle;
 
+import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.Image;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -36,6 +39,11 @@ public class Robot extends IterativeRobot {
     public static Chassis chassis;
     public static Bras bras;
     public static Pelle pelle;
+    
+    public static int currSession;
+	public static int sessionfront;
+	public static int sessionback;
+	public static Image frame;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -56,6 +64,12 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         
         autonomousCommand = new Reculer();
+        
+        frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
+		sessionfront = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
+		sessionback = NIVision.IMAQdxOpenCamera("cam1", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
+		currSession = sessionfront;
+		NIVision.IMAQdxConfigureGrab(currSession);
         
     }
 
