@@ -21,14 +21,11 @@ public class BaisserBras extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.bras.baisserBras();
-    	if (Robot.bras.switchBas()) {
-    		finish=true;
-    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.bras.switchBas();
     }
 
     // Called once after isFinished returns true
