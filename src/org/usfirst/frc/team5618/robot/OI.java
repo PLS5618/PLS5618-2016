@@ -13,6 +13,7 @@ package org.usfirst.frc.team5618.robot;
 import org.usfirst.frc.team5618.robot.commands.InPelle;
 import org.usfirst.frc.team5618.robot.commands.OutPelle;
 import org.usfirst.frc.team5618.robot.commands.Reculer;
+import org.usfirst.frc.team5618.robot.commands.Tourner;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -65,10 +66,10 @@ public class OI {
 		buttonY.whenPressed(new OutPelle());
 				
 		// SmartDashboard Buttons
-		SmartDashboard.putData("Autonomous Command", new Reculer());
+		SmartDashboard.putData("Autonomous Command Reculer", new Reculer());
+		SmartDashboard.putData("Autonomous Command Tourner", new Tourner());
 		SmartDashboard.putData("InPelle", new InPelle());
 		SmartDashboard.putData("OutPelle", new OutPelle());
-
 	}
 
 	public Joystick getstick() {

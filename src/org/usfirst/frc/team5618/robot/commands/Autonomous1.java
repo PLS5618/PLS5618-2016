@@ -25,8 +25,8 @@ public class Autonomous1 extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	addSequential(new BaisserBras());
     	addSequential(new Reculer());
-    	addSequential(new Tourner());
     	
     }
 }

@@ -39,6 +39,10 @@ public class Bras extends Subsystem {
 	public boolean switchBas() {
 		return limitBrasBas.get();
 	}
+	
+	public void baisserBras() {
+		motorBras.set(0.6);
+	}
 
 	public void initDefaultCommand() {
 
