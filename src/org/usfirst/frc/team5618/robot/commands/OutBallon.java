@@ -18,24 +18,23 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class InPelle extends Command {
-    public InPelle() {
+public class OutBallon extends Command {
+    public OutBallon() {
         requires(Robot.pelle);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.pelle.inBallon();
+    	Robot.pelle.outBallon();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !Robot.oi.stick.getRawButton(1) || Robot.pelle.limitFond();
+        return !Robot.oi.stick.getRawButton(4);
     }
 
     // Called once after isFinished returns true
