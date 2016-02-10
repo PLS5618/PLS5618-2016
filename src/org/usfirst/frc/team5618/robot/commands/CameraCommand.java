@@ -24,6 +24,7 @@ public class CameraCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
+    	
     	boolean laswitch = Robot.oi.stick.getRawButton(5);
 		
 		if (laswitch) {
