@@ -13,6 +13,7 @@ package org.usfirst.frc.team5618.robot;
 
 import org.usfirst.frc.team5618.robot.commands.Reculer;
 import org.usfirst.frc.team5618.robot.subsystems.Bras;
+import org.usfirst.frc.team5618.robot.subsystems.Camera;
 import org.usfirst.frc.team5618.robot.subsystems.Chassis;
 import org.usfirst.frc.team5618.robot.subsystems.Pelle;
 
@@ -39,6 +40,7 @@ public class Robot extends IterativeRobot {
     public static Chassis chassis;
     public static Bras bras;
     public static Pelle pelle;
+    public static Camera camera;
     
     public static int currSession;
 	public static int sessionfront;
@@ -54,6 +56,7 @@ public class Robot extends IterativeRobot {
         chassis = new Chassis();
         bras = new Bras();
         pelle = new Pelle();
+        camera = new Camera();
 
         // OI must be constructed after subsystems. If the OI creates Commands
         //(which it very likely will), subsystems are not guaranteed to be

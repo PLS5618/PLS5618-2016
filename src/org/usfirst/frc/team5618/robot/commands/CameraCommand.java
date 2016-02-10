@@ -14,7 +14,7 @@ public class CameraCommand extends Command {
 
     public CameraCommand() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.camera);
     }
 
     // Called just before this Command runs the first time
