@@ -77,6 +77,5 @@ public class RobotMap {
 
 		pelleLimitPelleBallon = new DigitalInput(2);
 		LiveWindow.addSensor("Pelle", "LimitPelleBallon", pelleLimitPelleBallon);
-
 	}
 }
