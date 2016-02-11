@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Tourner extends Command {
-	int time = 0;
 	boolean finish = false;
+	
     public Tourner() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -24,8 +24,7 @@ public class Tourner extends Command {
     protected void execute() {
     	Timer.delay(1);
     	Robot.chassis.tourner();
-    	time++;
-    	if (time >= 2) {
+    	if (Robot.chassis.valeurGyro() >= 180) {
     		finish = true;
     	}
     }

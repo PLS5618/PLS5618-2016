@@ -13,6 +13,7 @@ package org.usfirst.frc.team5618.robot.subsystems;
 import org.usfirst.frc.team5618.robot.RobotMap;
 import org.usfirst.frc.team5618.robot.commands.drive;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -28,6 +29,7 @@ public class Chassis extends Subsystem {
 	private final CANTalon drive_fl = RobotMap.chassisdrive_fl;
 	private final CANTalon drive_bl = RobotMap.chassisdrive_bl;
 	private final RobotDrive drive = RobotMap.chassisdrive;
+	private final ADXRS450_Gyro gyro = RobotMap.gyro;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -65,6 +67,9 @@ public class Chassis extends Subsystem {
 		drive_br.set(-0.4);
 		drive_fl.set(0.4);
 		drive_bl.set(0.4);
+	}
+	public double valeurGyro() {
+		return gyro.getAngle();
 	}
 	
 	public void initDefaultCommand() {
