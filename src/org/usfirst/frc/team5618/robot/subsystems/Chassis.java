@@ -56,17 +56,11 @@ public class Chassis extends Subsystem {
 	}
 
 	public void reculer() {
-		drive_fr.set(0.4);
-		drive_br.set(0.4);
-		drive_fl.set(0.4);
-		drive_bl.set(0.4);
+		drive.arcadeDrive(-0.3, 0);
 		}
 	
 	public void tourner() {
-		drive_fr.set(-0.4);
-		drive_br.set(-0.4);
-		drive_fl.set(0.4);
-		drive_bl.set(0.4);
+		drive.arcadeDrive(0, 0.3);
 	}
 	public double valeurGyro() {
 		return gyro.getAngle();
