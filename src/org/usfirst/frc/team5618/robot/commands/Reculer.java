@@ -4,38 +4,33 @@ import org.usfirst.frc.team5618.robot.Robot;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Reculer extends Command {
-
-	int time = 0;
-	boolean finish = false;
 	
     public Reculer() {
+    	requires(Robot.chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+    	Robot.chassis.encReset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Timer.delay(1);
     	Robot.chassis.reculer();
-    	time++;
-    	if(time >= 3) {
-    		finish = true;
-    	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return finish;
+        return Robot.chassis.distEncoder() > SmartDashboard.getNumber("AutoDist");
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	time = 0;
     	Robot.chassis.stop();
     }
 

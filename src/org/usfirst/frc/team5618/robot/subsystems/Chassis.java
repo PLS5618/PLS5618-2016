@@ -5,6 +5,7 @@ import org.usfirst.frc.team5618.robot.commands.drive;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -20,6 +21,8 @@ public class Chassis extends Subsystem {
 	private final CANTalon drive_bl = RobotMap.chassisdrive_bl;
 	private final RobotDrive drive = RobotMap.chassisdrive;
 	private final ADXRS450_Gyro gyro = RobotMap.gyro;
+	private final Encoder encL = RobotMap.encL;
+	private final Encoder encR = RobotMap.encR;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -47,15 +50,26 @@ public class Chassis extends Subsystem {
 
 	public void reculer() {
 		drive.arcadeDrive(-0.3, 0);
-		}
-	
+	}
+
 	public void tourner() {
 		drive.arcadeDrive(0, 0.3);
 	}
+
 	public double valeurGyro() {
 		return gyro.getAngle();
 	}
-	
+
+	public double distEncoder() {
+
+		return (encL.getDistance() + encR.getDistance()) / 2;
+	}
+
+	public void encReset() {
+		encL.reset();
+		encR.reset();
+	}
+
 	public void initDefaultCommand() {
 
 		setDefaultCommand(new drive());

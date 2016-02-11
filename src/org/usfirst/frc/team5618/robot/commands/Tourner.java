@@ -10,7 +10,7 @@ public class Tourner extends Command {
 	
     public Tourner() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.chassis);
     }
 
     // Called just before this Command runs the first time
