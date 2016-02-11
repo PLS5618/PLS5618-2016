@@ -5,9 +5,6 @@ import org.usfirst.frc.team5618.robot.Robot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class Tourner extends Command {
 	boolean finish = false;
 	

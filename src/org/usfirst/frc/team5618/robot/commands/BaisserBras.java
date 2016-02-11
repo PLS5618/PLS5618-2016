@@ -4,9 +4,6 @@ import org.usfirst.frc.team5618.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class BaisserBras extends Command {
 	boolean finish = false;
     public BaisserBras() {

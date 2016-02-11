@@ -7,9 +7,6 @@ import com.ni.vision.NIVision;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class CameraCommand extends Command {
 
     public CameraCommand() {

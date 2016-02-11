@@ -4,9 +4,6 @@ import org.usfirst.frc.team5618.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class BrasCommand extends Command {
 
 	public BrasCommand() {
