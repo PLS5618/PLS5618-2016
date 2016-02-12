@@ -12,6 +12,7 @@ public class Reculer extends Command {
 	
     public Reculer() {
     	requires(Robot.chassis);
+    	Robot.chassis.resetGyro();
     }
 
     // Called just before this Command runs the first time
@@ -24,13 +25,16 @@ public class Reculer extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
+    	double Kp = 0.03;
+    	
     	if (Robot.chassis.spdEncoder() < (AutoSpeed - 0.01)) {
     		speed = speed + 0.01;
     	}
     	if (Robot.chassis.spdEncoder() > (AutoSpeed + 0.01)) {
     		speed = speed - 0.01;
     	}
-    	Robot.chassis.reculer(speed);
+    	    	
+    	Robot.chassis.reculer(speed, (-Robot.chassis.valeurGyro() * Kp));
     	
     }
 

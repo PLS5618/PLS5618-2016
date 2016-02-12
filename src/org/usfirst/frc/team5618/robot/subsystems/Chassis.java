@@ -48,7 +48,7 @@ public class Chassis extends Subsystem {
 		drive.arcadeDrive(0, 0);
 	}
 
-	public void reculer(double speed) {
+	public void reculer(double speed, double curve) {
 		drive.arcadeDrive(-0.3, 0);
 	}
 
@@ -58,6 +58,10 @@ public class Chassis extends Subsystem {
 
 	public double valeurGyro() {
 		return gyro.getAngle();
+	}
+	
+	public void resetGyro() {
+		gyro.reset();
 	}
 
 	public double distEncoder() {
