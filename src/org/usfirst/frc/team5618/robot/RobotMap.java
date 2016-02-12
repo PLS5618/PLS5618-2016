@@ -78,8 +78,8 @@ public class RobotMap {
 		encL.setDistancePerPulse(0.04);
 		encR.setDistancePerPulse(0.04);
 		
-		SmartDashboard.putNumber("AutoDist", 0);
-		SmartDashboard.putNumber("AutoSpd", 0);
+		SmartDashboard.putNumber("AutoDist", 80);
+		SmartDashboard.putNumber("AutoSpd", 3);
 		
 	}
 }
