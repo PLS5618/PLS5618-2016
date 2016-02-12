@@ -75,6 +75,9 @@ public class RobotMap {
 		encR = new Encoder(3, 4);
 		LiveWindow.addSensor("Chassis", "encR", encR);
 		
+		encL.setDistancePerPulse(0.04);
+		encR.setDistancePerPulse(0.04);
+		
 		SmartDashboard.putNumber("AutoDist", 0);
 		SmartDashboard.putNumber("AutoSpd", 0);
 		

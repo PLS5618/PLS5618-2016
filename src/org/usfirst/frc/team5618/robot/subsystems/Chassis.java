@@ -48,7 +48,7 @@ public class Chassis extends Subsystem {
 		drive.arcadeDrive(0, 0);
 	}
 
-	public void reculer() {
+	public void reculer(double speed) {
 		drive.arcadeDrive(-0.3, 0);
 	}
 
@@ -61,8 +61,11 @@ public class Chassis extends Subsystem {
 	}
 
 	public double distEncoder() {
-
 		return (encL.getDistance() + encR.getDistance()) / 2;
+	}
+
+	public double spdEncoder() {
+		return (encL.getRate() + encR.getRate()) / 2;
 	}
 
 	public void encReset() {
