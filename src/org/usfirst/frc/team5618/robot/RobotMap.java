@@ -53,16 +53,16 @@ public class RobotMap {
 		brasmotorBras = new CANTalon(1);
 		LiveWindow.addActuator("Bras", "motorBras", brasmotorBras);
 
-		brasLimitBrasHaut = new DigitalInput(0);
+		brasLimitBrasHaut = new DigitalInput(4);
 		LiveWindow.addSensor("Bras", "LimitBrasHaut", brasLimitBrasHaut);
 
-		brasLimitBrasBas = new DigitalInput(1);
+		brasLimitBrasBas = new DigitalInput(5);
 		LiveWindow.addSensor("Bras", "LimitBrasBas", brasLimitBrasBas);
 
 		pellemotorPelle = new CANTalon(6);
 		LiveWindow.addActuator("Pelle", "motorPelle", pellemotorPelle);
 
-		pelleLimitPelleBallon = new DigitalInput(2);
+		pelleLimitPelleBallon = new DigitalInput(6);
 		LiveWindow.addSensor("Pelle", "LimitPelleBallon", pelleLimitPelleBallon);
 		
 		gyro = new ADXRS450_Gyro();
@@ -71,7 +71,7 @@ public class RobotMap {
 		encL = new Encoder(0, 1);
 		LiveWindow.addSensor("Chassis", "encL", encL);
 		
-		encR = new Encoder(3, 4);
+		encR = new Encoder(2, 3);
 		LiveWindow.addSensor("Chassis", "encR", encR);
 		
 		encL.setDistancePerPulse(0.04);
