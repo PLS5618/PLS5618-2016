@@ -21,9 +21,9 @@ public class Tourner extends Command {
     protected void execute() {
     	Timer.delay(1);
     	Robot.chassis.tourner();
-    	if (Robot.chassis.valeurGyro() >= 180) {
-    		finish = true;
-    	}
+    	//if (Robot.chassis.valeurGyro() >= 180) {
+    	//	finish = true;
+    	//}
     }
 
     // Make this return true when this Command no longer needs to run execute()

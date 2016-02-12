@@ -20,7 +20,7 @@ public class Chassis extends Subsystem {
 	private final CANTalon drive_fl = RobotMap.chassisdrive_fl;
 	private final CANTalon drive_bl = RobotMap.chassisdrive_bl;
 	private final RobotDrive drive = RobotMap.chassisdrive;
-	private final ADXRS450_Gyro gyro = RobotMap.gyro;
+	//private final ADXRS450_Gyro gyro = RobotMap.gyro;
 	private final Encoder encL = RobotMap.encL;
 	private final Encoder encR = RobotMap.encR;
 
@@ -49,27 +49,27 @@ public class Chassis extends Subsystem {
 	}
 
 	public void reculer(double speed, double curve) {
-		drive.arcadeDrive(-0.3, 0);
+		drive.arcadeDrive(speed, 0);
 	}
 
 	public void tourner() {
 		drive.arcadeDrive(0, 0.3);
 	}
 
-	public double valeurGyro() {
-		return gyro.getAngle();
-	}
+	//public double valeurGyro() {
+	//	return gyro.getAngle();
+	//}
 	
-	public void resetGyro() {
-		gyro.reset();
-	}
+	//public void resetGyro() {
+	//	gyro.reset();
+	//}
 
 	public double distEncoder() {
 		return (encL.getDistance() + encR.getDistance()) / 2;
 	}
 
 	public double spdEncoder() {
-		return (encL.getRate() + encR.getRate()) / 2;
+		return (encL.getRate());
 	}
 
 	public void encReset() {
