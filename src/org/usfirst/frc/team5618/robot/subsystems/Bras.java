@@ -29,14 +29,18 @@ public class Bras extends Subsystem {
 	public boolean switchBas() {
 		return limitBrasBas.get();
 	}
-	
+
 	public void baisserBras() {
 		motorBras.set(0.6);
 	}
 
+	public double distpot() {
+		return pot.get();
+	}
+
 	public void initDefaultCommand() {
 
-		 setDefaultCommand(new BrasCommand());		
+		setDefaultCommand(new BrasCommand());
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
 	}
