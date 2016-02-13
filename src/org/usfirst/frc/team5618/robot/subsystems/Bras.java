@@ -3,7 +3,6 @@ package org.usfirst.frc.team5618.robot.subsystems;
 import org.usfirst.frc.team5618.robot.RobotMap;
 import org.usfirst.frc.team5618.robot.commands.BrasCommand;
 
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;

@@ -18,7 +18,7 @@ public class InBallon extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.pelle.inBallon();
-    	Timer.delay(0.05);
+    	Timer.delay(0.08);
     }
 
     // Make this return true when this Command no longer needs to run execute()

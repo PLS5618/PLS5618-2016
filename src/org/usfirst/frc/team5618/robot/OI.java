@@ -4,7 +4,6 @@ import org.usfirst.frc.team5618.robot.commands.InBallon;
 import org.usfirst.frc.team5618.robot.commands.OutBallon;
 import org.usfirst.frc.team5618.robot.commands.Reculer;
 import org.usfirst.frc.team5618.robot.commands.Tourner;
-import org.usfirst.frc.team5618.robot.commands.changeSide;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;

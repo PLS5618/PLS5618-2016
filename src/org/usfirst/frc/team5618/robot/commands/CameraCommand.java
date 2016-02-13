@@ -2,10 +2,6 @@ package org.usfirst.frc.team5618.robot.commands;
 
 import org.usfirst.frc.team5618.robot.Robot;
 
-import com.ni.vision.NIVision;
-
-import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class CameraCommand extends Command {
@@ -21,7 +17,7 @@ public class CameraCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	    	
+    	    /*	
     	boolean laswitch = Robot.oi.stick.getRawButton(5);
 		
 		if (laswitch) {
@@ -42,6 +38,7 @@ public class CameraCommand extends Command {
 		CameraServer.getInstance().setImage(Robot.frame);
 		
 		Timer.delay(0.05);
+		*/
     }
 
     // Make this return true when this Command no longer needs to run execute()
