@@ -5,6 +5,7 @@ import org.usfirst.frc.team5618.robot.Robot;
 import com.ni.vision.NIVision;
 
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class CameraCommand extends Command {
@@ -40,6 +41,8 @@ public class CameraCommand extends Command {
 
 		NIVision.IMAQdxGrab(Robot.currSession, Robot.frame, 1);
 		CameraServer.getInstance().setImage(Robot.frame);
+		
+		Timer.delay(0.005);
     }
 
     // Make this return true when this Command no longer needs to run execute()
