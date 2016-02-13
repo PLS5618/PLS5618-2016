@@ -3,11 +3,11 @@ package org.usfirst.frc.team5618.robot.subsystems;
 import org.usfirst.frc.team5618.robot.RobotMap;
 import org.usfirst.frc.team5618.robot.commands.drive;
 
-import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -29,6 +29,7 @@ public class Chassis extends Subsystem {
 
 	public void drive(Joystick stick) {
 		drive.arcadeDrive(stick);
+		Timer.delay(0.001);
 	}
 
 	public void changeSide(boolean side) {

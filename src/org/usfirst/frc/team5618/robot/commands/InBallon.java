@@ -2,6 +2,7 @@ package org.usfirst.frc.team5618.robot.commands;
 
 import org.usfirst.frc.team5618.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class InBallon extends Command {
@@ -17,11 +18,12 @@ public class InBallon extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.pelle.inBallon();
+    	Timer.delay(0.01);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !Robot.oi.stick.getRawButton(1) || !Robot.pelle.limitFond();
+        return /*!Robot.oi.stick.getRawButton(1) ||*/  !Robot.pelle.limitFond();
     }
 
     // Called once after isFinished returns true

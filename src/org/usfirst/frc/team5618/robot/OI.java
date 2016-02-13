@@ -4,6 +4,7 @@ import org.usfirst.frc.team5618.robot.commands.InBallon;
 import org.usfirst.frc.team5618.robot.commands.OutBallon;
 import org.usfirst.frc.team5618.robot.commands.Reculer;
 import org.usfirst.frc.team5618.robot.commands.Tourner;
+import org.usfirst.frc.team5618.robot.commands.changeSide;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -46,10 +47,13 @@ public class OI {
 		stick = new Joystick(0);
 		
 		Button buttonA = new JoystickButton(stick, 1),
-				buttonY = new JoystickButton(stick, 4);
+				buttonY = new JoystickButton(stick, 4)
+				// buttonSwitch = new JoystickButton(stick, 5)
+				;
 		
 		buttonA.whenPressed(new InBallon());
 		buttonY.whenPressed(new OutBallon());
+		//buttonSwitch.whenPressed(new changeSide());
 				
 		// SmartDashboard Buttons
 		SmartDashboard.putData("Autonomous Command Reculer", new Reculer());

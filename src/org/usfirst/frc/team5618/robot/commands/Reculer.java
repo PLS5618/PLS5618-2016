@@ -2,6 +2,7 @@ package org.usfirst.frc.team5618.robot.commands;
 
 import org.usfirst.frc.team5618.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -36,7 +37,7 @@ public class Reculer extends Command {
     	}
     	    	
     	Robot.chassis.reculer(speed, /*(-Robot.chassis.valeurGyro() * Kp)*/ 0);
-    	
+    	Timer.delay(0.005);
     }
 
     // Make this return true when this Command no longer needs to run execute()

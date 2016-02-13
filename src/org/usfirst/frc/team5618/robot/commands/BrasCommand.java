@@ -2,6 +2,7 @@ package org.usfirst.frc.team5618.robot.commands;
 
 import org.usfirst.frc.team5618.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class BrasCommand extends Command {
@@ -44,7 +45,7 @@ public class BrasCommand extends Command {
 				Robot.bras.controlBras(0);
 			}
 		}
-
+Timer.delay(0.005);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
