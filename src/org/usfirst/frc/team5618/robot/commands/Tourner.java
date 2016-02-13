@@ -24,6 +24,9 @@ public class Tourner extends Command {
 		// if (Robot.chassis.valeurGyro() >= 180) {
 		// finish = true;
 		// }
+		if (Robot.chassis.distencL() >= 0/*25.13 pouces*/ && Robot.chassis.distencR() >= 0/*25.13 pouces*/) {
+			finish = true;
+		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

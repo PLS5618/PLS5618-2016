@@ -76,6 +76,13 @@ public class Chassis extends Subsystem {
 		encL.reset();
 		encR.reset();
 	}
+	public double distencL() {
+		return encL.getDistance();
+	}
+	
+	public double distencR() {
+		return encR.getDistance();
+	}
 
 	public void initDefaultCommand() {
 
