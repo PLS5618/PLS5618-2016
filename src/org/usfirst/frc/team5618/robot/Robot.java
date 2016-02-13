@@ -2,13 +2,10 @@ package org.usfirst.frc.team5618.robot;
 
 import org.usfirst.frc.team5618.robot.commands.Reculer;
 import org.usfirst.frc.team5618.robot.subsystems.Bras;
-import org.usfirst.frc.team5618.robot.subsystems.Camera;
 import org.usfirst.frc.team5618.robot.subsystems.Chassis;
 import org.usfirst.frc.team5618.robot.subsystems.Pelle;
 
-import com.ni.vision.NIVision;
-import com.ni.vision.NIVision.Image;
-
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -22,12 +19,8 @@ public class Robot extends IterativeRobot {
     public static Chassis chassis;
     public static Bras bras;
     public static Pelle pelle;
-    public static Camera camera;
     
-    public static int currSession;
-	public static int sessionfront;
-	public static int sessionback;
-	public static Image frame;
+    CameraServer server;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -38,7 +31,6 @@ public class Robot extends IterativeRobot {
         chassis = new Chassis();
         bras = new Bras();
         pelle = new Pelle();
-        camera = new Camera();
 
         // OI must be constructed after subsystems. If the OI creates Commands
         //(which it very likely will), subsystems are not guaranteed to be
@@ -50,13 +42,10 @@ public class Robot extends IterativeRobot {
         
         autonomousCommand = new Reculer();
         
-        
-        frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-		sessionfront = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
-		sessionback = NIVision.IMAQdxOpenCamera("cam1", NIVision.IMAQdxCameraControlMode.CameraControlModeController);
-		currSession = sessionfront;
-		NIVision.IMAQdxConfigureGrab(currSession);
-        
+        server = CameraServer.getInstance();
+        server.setQuality(50);
+        //the camera name (ex "cam0") can be found through the roborio web interface
+        server.startAutomaticCapture("cam0");        
     }
 
     /**
