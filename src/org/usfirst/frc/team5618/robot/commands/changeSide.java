@@ -34,7 +34,7 @@ public class changeSide extends Command {
 		}
 			changed = true;
 			
-			Timer.delay(0.05);
+			Timer.delay(0.1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -45,7 +45,7 @@ public class BrasCommand extends Command {
 				Robot.bras.controlBras(0);
 			}
 		}
-Timer.delay(0.005);
+Timer.delay(0.01);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

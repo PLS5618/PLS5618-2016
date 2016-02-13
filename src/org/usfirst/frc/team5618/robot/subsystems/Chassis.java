@@ -29,7 +29,6 @@ public class Chassis extends Subsystem {
 
 	public void drive(Joystick stick) {
 		drive.arcadeDrive(stick);
-		Timer.delay(0.001);
 	}
 
 	public void changeSide(boolean side) {
