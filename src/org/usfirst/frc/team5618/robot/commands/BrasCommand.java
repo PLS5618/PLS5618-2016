@@ -4,6 +4,7 @@ import org.usfirst.frc.team5618.robot.Robot;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class BrasCommand extends Command {
 
@@ -32,7 +33,7 @@ public class BrasCommand extends Command {
 		}
 
 		if (Robot.oi.stick.getRawAxis(5) < -0.1) {
-			if (Robot.bras.switchHaut() /*|| !(Robot.bras.distPot() >= (valeur choisi))*/) {
+			if (Robot.bras.switchHaut() || !(Robot.bras.distPot() >= (SmartDashboard.getNumber("hMax")))) {
 				Robot.bras.controlBras(Robot.oi.stick.getRawAxis(5) * pourcentM);
 			} else {
 				Robot.bras.controlBras(0);
