@@ -37,6 +37,9 @@ public class Bras extends Subsystem {
 		return pot.get();
 	}
 
+	public void LeverBras(){
+		motorBras.set(0.6);
+	}
 	public void initDefaultCommand() {
 
 		setDefaultCommand(new BrasCommand());
