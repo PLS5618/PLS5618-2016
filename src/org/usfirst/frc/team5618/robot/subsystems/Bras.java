@@ -33,7 +33,7 @@ public class Bras extends Subsystem {
 		motorBras.set(0.6);
 	}
 
-	public double distpot() {
+	public double distPot() {
 		return pot.get();
 	}
 
