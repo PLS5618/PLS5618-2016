@@ -42,7 +42,7 @@ public class CameraCommand extends Command {
 		NIVision.IMAQdxGrab(Robot.currSession, Robot.frame, 1);
 		CameraServer.getInstance().setImage(Robot.frame);
 		
-		Timer.delay(0.01);
+		Timer.delay(0.05);
     }
 
     // Make this return true when this Command no longer needs to run execute()

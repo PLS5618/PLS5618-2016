@@ -37,7 +37,7 @@ public class Reculer extends Command {
     	}
     	    	
     	Robot.chassis.reculer(speed, /*(-Robot.chassis.valeurGyro() * Kp)*/ 0);
-    	Timer.delay(0.005);
+    	Timer.delay(0.05);
     }
 
     // Make this return true when this Command no longer needs to run execute()
