@@ -3,6 +3,8 @@ package org.usfirst.frc.team5618.robot.subsystems;
 import org.usfirst.frc.team5618.robot.RobotMap;
 import org.usfirst.frc.team5618.robot.commands.BrasCommand;
 
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -11,6 +13,7 @@ public class Bras extends Subsystem {
 	private final CANTalon motorBras = RobotMap.brasmotorBras;
 	private final DigitalInput limitBrasHaut = RobotMap.brasLimitBrasHaut;
 	private final DigitalInput limitBrasBas = RobotMap.brasLimitBrasBas;
+	private final AnalogPotentiometer pot = (AnalogPotentiometer) RobotMap.pot;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
