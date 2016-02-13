@@ -85,6 +85,6 @@ public class RobotMap {
 		pot = new AnalogPotentiometer(0, 360, 30);
 		AnalogInput ai = new AnalogInput(1);
 		pot = new AnalogPotentiometer(ai, 360, 30);
-		
+		SmartDashboard.putNumber("distPot", 0);		
 	}
 }
