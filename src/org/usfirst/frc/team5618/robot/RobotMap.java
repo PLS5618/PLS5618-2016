@@ -70,6 +70,7 @@ public class RobotMap {
 		
 		gyro = new ADXRS450_Gyro();
 		LiveWindow.addSensor("Chassis", "gyro", gyro);
+		SmartDashboard.putNumber("gyroAngle", gyro.getAngle());
 		
 		encL = new Encoder(0, 1);
 		LiveWindow.addSensor("Chassis", "encL", encL);
@@ -79,6 +80,9 @@ public class RobotMap {
 		
 		encL.setDistancePerPulse(0.04);
 		encR.setDistancePerPulse(0.04);
+		
+		SmartDashboard.putNumber("EncoderSpd", Robot.chassis.spdEncoder());
+		SmartDashboard.putNumber("EncoderDist", Robot.chassis.distEncoder());
 		
 		SmartDashboard.putNumber("AutoDist", 80);
 		SmartDashboard.putNumber("AutoSpd", 3);

@@ -4,6 +4,7 @@ import org.usfirst.frc.team5618.robot.Robot;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -21,6 +22,8 @@ public class drive extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		Robot.chassis.drive(Robot.oi.getstick());
+		SmartDashboard.putNumber("EncoderSpd", Robot.chassis.spdEncoder());
+		SmartDashboard.putNumber("EncoderDist", Robot.chassis.distEncoder());
 		Timer.delay(0.001);
 	}
 

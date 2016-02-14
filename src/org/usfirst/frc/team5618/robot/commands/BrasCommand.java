@@ -23,6 +23,8 @@ public class BrasCommand extends Command {
 
 		double pourcentM;
 		double pourcentB;
+		
+		SmartDashboard.putNumber("distPot", Robot.bras.distPot());
 
 		if (Robot.oi.stick.getRawButton(6)) {
 			pourcentM = 0.90;
