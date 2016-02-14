@@ -20,7 +20,7 @@ public class Reculer extends Command {
     	Robot.chassis.encReset();
     	Robot.chassis.resetGyro();
     	AutoSpeed = SmartDashboard.getNumber("AutoSpd");
-    	speed = AutoSpeed;
+    	speed = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -29,11 +29,11 @@ public class Reculer extends Command {
     	AutoSpeed = SmartDashboard.getNumber("AutoSpd");
     	double Kp = 0.03;
     	
-    	if (Robot.chassis.spdEncoder() < (AutoSpeed - 0.01)) {
-    		speed = speed + 0.01;
-    	}
-    	if (Robot.chassis.spdEncoder() > (AutoSpeed + 0.01)) {
+    	if (Robot.chassis.spdEncoder() < (AutoSpeed - 0.001)) {
     		speed = speed - 0.01;
+    	}
+    	if (Robot.chassis.spdEncoder() > (AutoSpeed + 0.001)) {
+    		speed = speed + 0.01;
     	}
     	    	
     	Robot.chassis.reculer(speed, (-Robot.chassis.valeurGyro() * Kp));

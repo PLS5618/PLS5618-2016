@@ -63,6 +63,10 @@ public class Chassis extends Subsystem {
 	public void resetGyro() {
 		gyro.reset();
 	}
+	
+	public int pulseEnc() {
+		return encL.getRaw();
+	}
 
 	public double distEncoder() {
 		return (encL.getDistance() + encR.getDistance()) / 2;

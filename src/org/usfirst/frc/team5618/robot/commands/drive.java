@@ -24,6 +24,7 @@ public class drive extends Command {
 		Robot.chassis.drive(Robot.oi.getstick());
 		SmartDashboard.putNumber("EncoderSpd", Robot.chassis.spdEncoder());
 		SmartDashboard.putNumber("EncoderDist", Robot.chassis.distEncoder());
+		SmartDashboard.putNumber("gyroAngle", Robot.chassis.valeurGyro());
 		Timer.delay(0.001);
 	}
 

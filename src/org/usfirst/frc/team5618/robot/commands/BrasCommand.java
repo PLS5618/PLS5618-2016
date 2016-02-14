@@ -35,14 +35,14 @@ public class BrasCommand extends Command {
 		}
 
 		if (Robot.oi.stick.getRawAxis(5) < -0.1) {
-			if (Robot.bras.switchHaut() || !(Robot.bras.distPot() >= (SmartDashboard.getNumber("hMax")))) {
+			if (Robot.bras.switchHaut() && !(Robot.bras.distPot() <= (SmartDashboard.getNumber("hMax")))) {
 				Robot.bras.controlBras(Robot.oi.stick.getRawAxis(5) * pourcentM);
 			} else {
 				Robot.bras.controlBras(0);
 			}
 		}
 		if (Robot.oi.stick.getRawAxis(5) > 0.1) {
-			if (Robot.bras.switchBas()) {
+			if (!Robot.bras.switchBas()) {
 				Robot.bras.controlBras(Robot.oi.stick.getRawAxis(5) * pourcentB);
 			} else {
 				Robot.bras.controlBras(0);
