@@ -13,12 +13,12 @@ public class Reculer extends Command {
 	
     public Reculer() {
     	requires(Robot.chassis);
-   // 	Robot.chassis.resetGyro();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.chassis.encReset();
+    	Robot.chassis.resetGyro();
     	AutoSpeed = SmartDashboard.getNumber("AutoSpd");
     	speed = AutoSpeed;
     }
@@ -36,7 +36,7 @@ public class Reculer extends Command {
     		speed = speed - 0.01;
     	}
     	    	
-    	Robot.chassis.reculer(speed, /*(-Robot.chassis.valeurGyro() * Kp)*/ 0);
+    	Robot.chassis.reculer(speed, (-Robot.chassis.valeurGyro() * Kp));
     	Timer.delay(0.001);
     }
 

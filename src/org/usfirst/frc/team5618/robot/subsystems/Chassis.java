@@ -3,6 +3,7 @@ package org.usfirst.frc.team5618.robot.subsystems;
 import org.usfirst.frc.team5618.robot.RobotMap;
 import org.usfirst.frc.team5618.robot.commands.drive;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
@@ -19,7 +20,7 @@ public class Chassis extends Subsystem {
 	private final CANTalon drive_fl = RobotMap.chassisdrive_fl;
 	private final CANTalon drive_bl = RobotMap.chassisdrive_bl;
 	private final RobotDrive drive = RobotMap.chassisdrive;
-	//private final ADXRS450_Gyro gyro = RobotMap.gyro;
+	private final ADXRS450_Gyro gyro = RobotMap.gyro;
 	private final Encoder encL = RobotMap.encL;
 	private final Encoder encR = RobotMap.encR;
 
@@ -55,13 +56,13 @@ public class Chassis extends Subsystem {
 		drive.arcadeDrive(0, 0.3);
 	}
 
-	//public double valeurGyro() {
-	//	return gyro.getAngle();
-	//}
+	public double valeurGyro() {
+		return gyro.getAngle();
+	}
 	
-	//public void resetGyro() {
-	//	gyro.reset();
-	//}
+	public void resetGyro() {
+		gyro.reset();
+	}
 
 	public double distEncoder() {
 		return (encL.getDistance() + encR.getDistance()) / 2;
