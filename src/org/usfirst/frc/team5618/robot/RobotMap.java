@@ -27,6 +27,7 @@ public class RobotMap {
 	public static ADXRS450_Gyro gyro;
 	public static Encoder encL;
 	public static Encoder encR;
+	public static Encoder encPelle;
 	public static AnalogPotentiometer pot;
 
 	public static void init() {
@@ -79,14 +80,20 @@ public class RobotMap {
 		encR = new Encoder(2, 3, false, EncodingType.k4X);
 		LiveWindow.addSensor("Chassis", "encR", encR);
 		
+		encPelle = new Encoder(4, 5, false, EncodingType.k4X);
+		LiveWindow.addSensor("Bras", "encPelle", encPelle);
+		
 		encL.setDistancePerPulse(0.058);
 		encR.setDistancePerPulse(0.058);
+		encPelle.setDistancePerPulse(0.2885);
 		
 		SmartDashboard.putNumber("EncoderSpd", 0);
 		SmartDashboard.putNumber("EncoderDist", 0);
 		
 		SmartDashboard.putNumber("AutoDist", 80);
 		SmartDashboard.putNumber("AutoSpd", 3);
+		
+		SmartDashboard.putNumber("BrasSpd", 33);
 		
 		pot = new AnalogPotentiometer(0, 8*360, 0);
 		SmartDashboard.putNumber("distPot", 0);

@@ -27,6 +27,7 @@ public class Reculer extends Command {
     protected void execute() {
     	
     	AutoSpeed = SmartDashboard.getNumber("AutoSpd");
+    	//Kp = CORRECTION
     	double Kp = 0.03;
     	
     	if (Robot.chassis.spdEncoder() < (AutoSpeed - 0.001)) {

@@ -69,6 +69,7 @@ public class Chassis extends Subsystem {
 	}
 
 	public double distEncoder() {
+		// MOYENNE DES ENCODEURS
 		return (encL.getDistance() + encR.getDistance()) / 2;
 	}
 
