@@ -42,7 +42,7 @@ public class BrasCommand extends Command {
 			}
 		}
 		if (Robot.oi.stick.getRawAxis(5) > 0.1) {
-			if (!Robot.bras.switchBas()) {
+			if (Robot.bras.switchBas()) {
 				Robot.bras.controlBras(Robot.oi.stick.getRawAxis(5) * pourcentB);
 			} else {
 				Robot.bras.controlBras(0);

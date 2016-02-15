@@ -42,7 +42,7 @@ public class Reculer extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.chassis.distEncoder() >= SmartDashboard.getNumber("AutoDist");
+        return Robot.chassis.distEncoder() <= SmartDashboard.getNumber("AutoDist");
     }
 
     // Called once after isFinished returns true

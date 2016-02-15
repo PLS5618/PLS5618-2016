@@ -1,6 +1,6 @@
 package org.usfirst.frc.team5618.robot;
 
-import org.usfirst.frc.team5618.robot.commands.Reculer;
+import org.usfirst.frc.team5618.robot.commands.Autonomous1;
 import org.usfirst.frc.team5618.robot.subsystems.Bras;
 import org.usfirst.frc.team5618.robot.subsystems.Chassis;
 import org.usfirst.frc.team5618.robot.subsystems.Pelle;
@@ -40,7 +40,7 @@ public class Robot extends IterativeRobot {
 
         // instantiate the command used for the autonomous period
         
-        autonomousCommand = new Reculer();
+        autonomousCommand = new Autonomous1();
         
         server = CameraServer.getInstance();
         server.setQuality(50);

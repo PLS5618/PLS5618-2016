@@ -90,6 +90,6 @@ public class RobotMap {
 		
 		pot = new AnalogPotentiometer(0, 8*360, 0);
 		SmartDashboard.putNumber("distPot", 0);
-		SmartDashboard.putNumber("hMax", 0);
+		SmartDashboard.putNumber("hMax", 1050);
 	}
 }
