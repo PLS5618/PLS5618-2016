@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5618.robot.commands;
 
+import org.usfirst.frc.team5618.robot.OI;
 import org.usfirst.frc.team5618.robot.Robot;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -34,7 +35,7 @@ public class BrasCommand extends Command {
 
 		// REFRESH ALL VARIABLES
 		SmartDashboard.putNumber("distPot", Robot.bras.distPot());
-		joySpeed = Robot.oi.stick.getRawAxis(5);
+		joySpeed = Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT);
 
 		// INCREASE/DECREASE SPEED IF NOT CORRECT
 		if (Robot.bras.BrasSpd() >= joySpeed * SpdMax && speed >= -1) {
@@ -44,14 +45,14 @@ public class BrasCommand extends Command {
 		}
 
 		// 0.1 ET -0.1 = DEADZONE
-		if (Robot.oi.stick.getRawAxis(5) < -0.1) {
+		if (Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) < -0.1) {
 			if (Robot.bras.switchHaut() && !(Robot.bras.distPot() <= (SmartDashboard.getNumber("hMax")))) {
 				// SET SPEED TO MOTORS
 				Robot.bras.controlBras(speed);
 			} else {
 				Robot.bras.controlBras(0);
 			}
-		} else if (Robot.oi.stick.getRawAxis(5) > 0.1) {
+		} else if (Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) > 0.1) {
 			if (Robot.bras.switchBas()) {
 				Robot.bras.controlBras(speed);
 			} else {
