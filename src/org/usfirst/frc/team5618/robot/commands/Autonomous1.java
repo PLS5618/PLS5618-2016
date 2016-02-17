@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5618.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -25,8 +26,10 @@ public class Autonomous1 extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	if (SmartDashboard.getBoolean("baisserBras")) {
     	addSequential(new BaisserBras());
+    	}
     	addSequential(new Reculer());
-    	
+    	    	
     }
 }
