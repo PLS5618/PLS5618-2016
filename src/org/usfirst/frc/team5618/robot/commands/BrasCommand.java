@@ -26,40 +26,51 @@ public class BrasCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 
-		// double pourcentM;
-		// double pourcentB;
-		/*
-		 * if (Robot.oi.stick.getRawButton(6)) { pourcentM = 0.90; pourcentB =
-		 * 0.45; } else { pourcentM = 0.45; pourcentB = 0.15; }
-		 */
+		double pourcentM;
+		double pourcentB;
+
+		if (Robot.oi.stick.getRawButton(6)) {
+			pourcentM = 1;
+			pourcentB = 0.45;
+		} else {
+			pourcentM = 0.60;
+			pourcentB = 0.15;
+		}
 
 		// REFRESH ALL VARIABLES
 		SmartDashboard.putNumber("distPot", Robot.bras.distPot());
-		joySpeed = Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT);
 
-		// INCREASE/DECREASE SPEED IF NOT CORRECT
-		if (Robot.bras.BrasSpd() >= joySpeed * SpdMax && speed >= -1) {
-			speed -= 0.01;
-		} else if (Robot.bras.BrasSpd() <= joySpeed * SpdMax && speed <= 1) {
-			speed += 0.01;
-		}
-
+		/*
+		 * joySpeed = -Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT);
+		 * 
+		 * // INCREASE/DECREASE SPEED IF NOT CORRECT if
+		 * (Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) < -0.1) { if
+		 * (Robot.bras.BrasSpd() >= joySpeed * SpdMax && speed >= -1) { speed +=
+		 * 0.01; } else if (Robot.bras.BrasSpd() <= joySpeed * SpdMax && speed
+		 * <= 1) { speed -= 0.01; } } else if
+		 * (Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) > 0.1) { if
+		 * (Robot.bras.BrasSpd() <= joySpeed * SpdMax && speed >= -1) { speed +=
+		 * 0.01; } else if (Robot.bras.BrasSpd() >= joySpeed * SpdMax && speed
+		 * <= 1) { speed -= 0.01; } }
+		 */
 		// 0.1 ET -0.1 = DEADZONE
 		if (Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) < -0.1) {
 			if (Robot.bras.switchHaut() && !(Robot.bras.distPot() <= (SmartDashboard.getNumber("hMax")))) {
 				// SET SPEED TO MOTORS
-				Robot.bras.controlBras(speed);
+				Robot.bras.controlBras(Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) * pourcentM);
 			} else {
 				Robot.bras.controlBras(0);
 			}
 		} else if (Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) > 0.1) {
 			if (Robot.bras.switchBas()) {
-				Robot.bras.controlBras(speed);
+				Robot.bras.controlBras(Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) * pourcentB);
 			} else {
 				Robot.bras.controlBras(0);
 			}
 		} else
 			Robot.bras.controlBras(0);
+
+		SmartDashboard.putNumber("rlSpdBras", Robot.bras.BrasSpd());
 
 		Timer.delay(0.001);
 	}

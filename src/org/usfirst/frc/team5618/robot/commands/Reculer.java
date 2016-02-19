@@ -28,7 +28,7 @@ public class Reculer extends Command {
     	
     	AutoSpeed = SmartDashboard.getNumber("AutoSpd");
     	//Kp = CORRECTION
-    	double Kp = 0.03;
+    	double Kp = 0.5;
     	
     	if (Robot.chassis.spdEncoder() < (AutoSpeed - 0.001)) {
     		speed = speed - 0.01;
@@ -37,6 +37,8 @@ public class Reculer extends Command {
     		speed = speed + 0.01;
     	}
     	    	
+    	SmartDashboard.putNumber("gyroAngle", Robot.chassis.valeurGyro());
+    	
     	Robot.chassis.reculer(speed, (-Robot.chassis.valeurGyro() * Kp));
     	Timer.delay(0.001);
     }

@@ -24,6 +24,7 @@ public class RobotMap {
 	public static DigitalInput brasLimitBrasBas;
 	public static CANTalon pellemotorPelle;
 	public static DigitalInput pelleLimitPelleBallon;
+	public static DigitalInput pelleLimitPelleHerse;
 	public static ADXRS450_Gyro gyro;
 	public static Encoder encL;
 	public static Encoder encR;
@@ -70,6 +71,9 @@ public class RobotMap {
 		pelleLimitPelleBallon = new DigitalInput(6);
 		LiveWindow.addSensor("Pelle", "LimitPelleBallon", pelleLimitPelleBallon);
 		
+		pelleLimitPelleHerse = new DigitalInput(9);
+		LiveWindow.addSensor("Pelle", "LimitPelleHerse", pelleLimitPelleHerse);
+		
 		gyro = new ADXRS450_Gyro();
 		LiveWindow.addSensor("Chassis", "gyro", gyro);
 		SmartDashboard.putNumber("gyroAngle", 0);
@@ -80,7 +84,7 @@ public class RobotMap {
 		encR = new Encoder(2, 3, false, EncodingType.k4X);
 		LiveWindow.addSensor("Chassis", "encR", encR);
 		
-		encPelle = new Encoder(4, 5, false, EncodingType.k4X);
+		encPelle = new Encoder(7, 8, false, EncodingType.k4X);
 		LiveWindow.addSensor("Bras", "encPelle", encPelle);
 		
 		encL.setDistancePerPulse(0.058);
@@ -94,6 +98,7 @@ public class RobotMap {
 		SmartDashboard.putNumber("AutoSpd", 3);
 		
 		SmartDashboard.putNumber("BrasSpd", 33);
+		SmartDashboard.putNumber("rlSpdBras", 0);
 		
 		pot = new AnalogPotentiometer(0, 8*360, 0);
 		SmartDashboard.putNumber("distPot", 0);
