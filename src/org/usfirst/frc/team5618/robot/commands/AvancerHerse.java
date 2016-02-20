@@ -3,6 +3,7 @@ package org.usfirst.frc.team5618.robot.commands;
 import org.usfirst.frc.team5618.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -21,17 +22,21 @@ public class AvancerHerse extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
+		SmartDashboard.putBoolean("LimitPelleHerse", Robot.pelle.herseAcotee());
+
 		if (!Robot.pelle.limitPelleHerse.get()) {
-			if (!(Robot.bras.distPot() < 1800)) {
+			if (!(Robot.bras.distPot() < 1900)) {
 				Robot.chassis.reculer(-0.5, 0);
-			} else {
-				Robot.chassis.reculer(-0.8, 0);
 			}
-
-			// 1800
 		}
-
+		if (!(Robot.bras.distPot() > 1220) && (Robot.bras.distPot() < 1900)) {
+			Robot.chassis.reculer(-0.8, 0);
+		} else {
+			Robot.chassis.reculer(-1, 0);
+		}
 	}
+
+	// 1800
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {

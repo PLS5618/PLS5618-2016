@@ -34,6 +34,10 @@ public class Pelle extends Subsystem {
 	public boolean limitFond() {
 		return limitPelleBallon.get();
 	}
+	
+	public boolean herseAcotee() {
+		return limitPelleHerse.get();
+	}
 
 	public void initDefaultCommand() {
 

@@ -107,6 +107,6 @@ public class RobotMap {
 		SmartDashboard.putNumber("herse1", 0);
 		SmartDashboard.putNumber("herse2", 0);
 		
-		SmartDashboard.putBoolean("baisserBras", true);
+		SmartDashboard.putBoolean("baisserBras", true);		
 	}
 }
