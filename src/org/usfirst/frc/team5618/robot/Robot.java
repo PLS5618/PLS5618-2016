@@ -63,6 +63,8 @@ public class Robot extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
+        Robot.chassis.encReset();
+    	Robot.chassis.resetGyro();
     }
 
     /**

@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class drive extends Command {
 	public drive() {
 		requires(Robot.chassis);
-		
+
 	}
 
 	// Called just before this Command runs the first time
@@ -21,10 +21,15 @@ public class drive extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.chassis.drive(Robot.oi.getstick());
-		SmartDashboard.putNumber("EncoderSpd", Robot.chassis.spdEncoder());
-		SmartDashboard.putNumber("EncoderDist", Robot.chassis.distEncoder());
-		SmartDashboard.putNumber("gyroAngle", Robot.chassis.valeurGyro());
+
+		if (Robot.oi.stick.getPOV() == -1) {
+			Robot.chassis.drive(Robot.oi.getstick());
+			SmartDashboard.putNumber("EncoderSpd", Robot.chassis.spdEncoder());
+			SmartDashboard.putNumber("EncoderDist", Robot.chassis.distEncoder());
+			SmartDashboard.putNumber("gyroAngle", Robot.chassis.valeurGyro());
+		} else {
+			Robot.chassis.reculer(-0.318, 0);
+		}
 		Timer.delay(0.001);
 	}
 

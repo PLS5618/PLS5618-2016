@@ -49,7 +49,7 @@ public class Chassis extends Subsystem {
 	}
 
 	public void reculer(double speed, double curve) {
-		drive.arcadeDrive(speed, 0);
+		drive.arcadeDrive(speed, curve);
 	}
 
 	public void tourner() {

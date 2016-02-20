@@ -32,7 +32,7 @@ public class Bras extends Subsystem {
 	}
 
 	public void baisserBras() {
-		motorBras.set(-0.2);
+		motorBras.set(-0.4);
 	}
 
 	public double distPot() {

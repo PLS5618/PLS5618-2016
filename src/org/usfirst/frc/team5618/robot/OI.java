@@ -15,7 +15,7 @@ public class OI {
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
 	// You create one by telling it which joystick it's on and which button
-	// number it is.	
+	// number it is.
 	// Joystick stick = new Joystick(port);
 	// Button button = new JoystickButton(stick, buttonNumber);
 
@@ -40,20 +40,18 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 
 	public static final int JOY_AXIS_V_RIGHT = 5;
-	
+
 	public Joystick stick;
 
 	public OI() {
 
 		stick = new Joystick(0);
-		
-		Button buttonA = new JoystickButton(stick, 1),
-				buttonY = new JoystickButton(stick, 4)
-				;
-		
+
+		Button buttonA = new JoystickButton(stick, 1), buttonY = new JoystickButton(stick, 4);
+
 		buttonA.whenPressed(new InBallon());
-		buttonY.whenPressed(new OutBallon());	
-		
+		buttonY.whenPressed(new OutBallon());
+
 		// SmartDashboard Buttons
 		SmartDashboard.putData("Autonomous Command Reculer", new Reculer());
 		SmartDashboard.putData("Autonomous Command Tourner", new Tourner());
