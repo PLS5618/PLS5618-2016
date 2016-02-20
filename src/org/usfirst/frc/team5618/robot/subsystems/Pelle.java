@@ -14,7 +14,7 @@ public class Pelle extends Subsystem {
 
 	private final CANTalon motorPelle = RobotMap.pellemotorPelle;
 	private final DigitalInput limitPelleBallon = RobotMap.pelleLimitPelleBallon;
-	private final DigitalInput limitPelleHerse = RobotMap.pelleLimitPelleHerse;
+	public final DigitalInput limitPelleHerse = RobotMap.pelleLimitPelleHerse;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.

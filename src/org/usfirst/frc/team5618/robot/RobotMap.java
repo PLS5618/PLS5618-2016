@@ -104,6 +104,9 @@ public class RobotMap {
 		SmartDashboard.putNumber("distPot", 0);
 		SmartDashboard.putNumber("hMax", 1050);
 		
+		SmartDashboard.putNumber("herse1", 0);
+		SmartDashboard.putNumber("herse2", 0);
+		
 		SmartDashboard.putBoolean("baisserBras", true);
 	}
 }

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5618.robot;
 
+import org.usfirst.frc.team5618.robot.commands.AvancerHerse;
 import org.usfirst.frc.team5618.robot.commands.InBallon;
 import org.usfirst.frc.team5618.robot.commands.OutBallon;
 import org.usfirst.frc.team5618.robot.commands.Reculer;
@@ -47,10 +48,13 @@ public class OI {
 
 		stick = new Joystick(0);
 
-		Button buttonA = new JoystickButton(stick, 1), buttonY = new JoystickButton(stick, 4);
+		Button buttonA = new JoystickButton(stick, 1),
+		buttonY = new JoystickButton(stick, 4),
+		buttonFL = new JoystickButton(stick, 5);
 
 		buttonA.whenPressed(new InBallon());
 		buttonY.whenPressed(new OutBallon());
+		buttonFL.whenPressed(new AvancerHerse());
 
 		// SmartDashboard Buttons
 		SmartDashboard.putData("Autonomous Command Reculer", new Reculer());
