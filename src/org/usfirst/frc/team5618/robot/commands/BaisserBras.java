@@ -24,7 +24,7 @@ public class BaisserBras extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	// 2230 = VALEUR DU POTENTIOMETRE MAX
-        return (Robot.bras.distPot() >= 2000) || !SmartDashboard.getBoolean("baisserBras");
+        return (Robot.bras.distPot() >= 1770) || !SmartDashboard.getBoolean("baisserBras");
     }
 
     // Called once after isFinished returns true

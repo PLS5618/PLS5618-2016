@@ -30,7 +30,7 @@ public class BrasCommand extends Command {
 		double pourcentB;
 
 		if (Robot.oi.stick.getRawButton(6)) {
-			pourcentM = 1;
+			pourcentM = 0.90;
 			pourcentB = 0.45;
 		} else {
 			pourcentM = 0.60;

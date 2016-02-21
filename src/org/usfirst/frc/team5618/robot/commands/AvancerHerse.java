@@ -13,7 +13,7 @@ public class AvancerHerse extends Command {
 
 	public AvancerHerse() {
 		// Use requires() here to declare subsystem dependencies
-		// eg. requires(chassis);
+		requires(Robot.chassis);
 	}
 
 	// Called just before this Command runs the first time
@@ -25,15 +25,15 @@ public class AvancerHerse extends Command {
 		SmartDashboard.putBoolean("LimitPelleHerse", Robot.pelle.herseAcotee());
 
 		if (!Robot.pelle.limitPelleHerse.get()) {
-			if (!(Robot.bras.distPot() < 1900)) {
-				Robot.chassis.reculer(-0.5, 0);
+			if ((Robot.bras.distPot() > 1335)) {
+				Robot.chassis.reculer(-0.4, 0);
+			} else if ((Robot.bras.distPot() > 1060) && !(Robot.bras.distPot() < 1335)) {
+				Robot.chassis.reculer(-0.6, 0);
+			} else {
+				Robot.chassis.reculer(-0.9, 0);
 			}
 		}
-		if (!(Robot.bras.distPot() > 1220) && (Robot.bras.distPot() < 1900)) {
-			Robot.chassis.reculer(-0.8, 0);
-		} else {
-			Robot.chassis.reculer(-1, 0);
-		}
+
 	}
 
 	// 1800
