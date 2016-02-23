@@ -15,7 +15,7 @@ public class Chassis extends Subsystem {
 	// private final CANTalon drive_br = RobotMap.chassisdrive_br;
 	// private final CANTalon drive_fl = RobotMap.chassisdrive_fl;
 	// private final CANTalon drive_bl = RobotMap.chassisdrive_bl;
-	private final RobotDrive drive = RobotMap.chassisdrive;
+	public final RobotDrive drive = RobotMap.chassisdrive;
 	private final ADXRS450_Gyro gyro = RobotMap.gyro;
 	private final Encoder encL = RobotMap.encL;
 	private final Encoder encR = RobotMap.encR;
