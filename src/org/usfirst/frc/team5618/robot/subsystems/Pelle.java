@@ -7,9 +7,6 @@ import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
 public class Pelle extends Subsystem {
 
 	private final CANTalon motorPelle = RobotMap.pellemotorPelle;
@@ -26,7 +23,7 @@ public class Pelle extends Subsystem {
 	public void outBallon() {
 		motorPelle.set(-1);
 	}
-	
+
 	public void ballonStop() {
 		motorPelle.set(0);
 	}
@@ -34,7 +31,7 @@ public class Pelle extends Subsystem {
 	public boolean limitFond() {
 		return limitPelleBallon.get();
 	}
-	
+
 	public boolean herseAcotee() {
 		return limitPelleHerse.get();
 	}

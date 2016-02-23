@@ -22,14 +22,11 @@ public class drive extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 
-		if (Robot.oi.stick.getPOV() == -1) {
-			Robot.chassis.drive(Robot.oi.getstick());
-			SmartDashboard.putNumber("EncoderSpd", Robot.chassis.spdEncoder());
-			SmartDashboard.putNumber("EncoderDist", Robot.chassis.distEncoder());
-			SmartDashboard.putNumber("gyroAngle", Robot.chassis.valeurGyro());
-		} else {
-			Robot.chassis.reculer(-0.318, 0);
-		}
+		Robot.chassis.drive(Robot.oi.getstick());
+		SmartDashboard.putNumber("EncoderSpd", Robot.chassis.spdEncoder());
+		SmartDashboard.putNumber("EncoderDist", Robot.chassis.distEncoder());
+		SmartDashboard.putNumber("gyroAngle", Robot.chassis.valeurGyro());
+
 		Timer.delay(0.001);
 	}
 

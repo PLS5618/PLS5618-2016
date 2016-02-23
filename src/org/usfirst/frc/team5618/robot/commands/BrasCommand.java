@@ -8,9 +8,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class BrasCommand extends Command {
-	double joySpeed;
-	double speed;
-	double SpdMax;
 
 	public BrasCommand() {
 		// Use requires() here to declare subsystem dependencies
@@ -19,8 +16,6 @@ public class BrasCommand extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		// VITESSE MAXIMALE (DANS LE DASHBOARD (VOIR ROBOTMAP))
-		SpdMax = SmartDashboard.getNumber("BrasSpd");
 	}
 
 	// Called repeatedly when this Command is scheduled to run
@@ -36,24 +31,10 @@ public class BrasCommand extends Command {
 			pourcentM = 0.60;
 			pourcentB = 0.15;
 		}
-		
 
 		// REFRESH ALL VARIABLES
 		SmartDashboard.putNumber("distPot", Robot.bras.distPot());
 
-		/*
-		 * joySpeed = -Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT);
-		 * 
-		 * // INCREASE/DECREASE SPEED IF NOT CORRECT if
-		 * (Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) < -0.1) { if
-		 * (Robot.bras.BrasSpd() >= joySpeed * SpdMax && speed >= -1) { speed +=
-		 * 0.01; } else if (Robot.bras.BrasSpd() <= joySpeed * SpdMax && speed
-		 * <= 1) { speed -= 0.01; } } else if
-		 * (Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) > 0.1) { if
-		 * (Robot.bras.BrasSpd() <= joySpeed * SpdMax && speed >= -1) { speed +=
-		 * 0.01; } else if (Robot.bras.BrasSpd() >= joySpeed * SpdMax && speed
-		 * <= 1) { speed -= 0.01; } }
-		 */
 		// 0.1 ET -0.1 = DEADZONE
 		if (Robot.oi.stick.getRawAxis(OI.JOY_AXIS_V_RIGHT) < -0.1) {
 			if (Robot.bras.switchHaut() && !(Robot.bras.distPot() <= (SmartDashboard.getNumber("hMax")))) {
@@ -71,9 +52,9 @@ public class BrasCommand extends Command {
 		} else
 			Robot.bras.controlBras(0);
 
-		SmartDashboard.putNumber("rlSpdBras", Robot.bras.BrasSpd());
+		SmartDashboard.putBoolean("limitHerse", Robot.pelle.herseAcotee());
 
-		Timer.delay(0.001);
+		Timer.delay(0.005);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

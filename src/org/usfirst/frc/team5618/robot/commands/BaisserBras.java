@@ -7,32 +7,33 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class BaisserBras extends Command {
 	boolean finish = false;
-    public BaisserBras() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    }
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    }
+	public BaisserBras() {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	Robot.bras.baisserBras();
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-    	// 2230 = VALEUR DU POTENTIOMETRE MAX
-        return (Robot.bras.distPot() >= 1770) || !SmartDashboard.getBoolean("baisserBras");
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		Robot.bras.baisserBras();
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		// 1770 = VALEUR DU POTENTIOMETRE MAX
+		return (Robot.bras.distPot() >= 1440) || !SmartDashboard.getBoolean("baisserBras");
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+	// Called once after isFinished returns true
+	protected void end() {
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+	}
 }

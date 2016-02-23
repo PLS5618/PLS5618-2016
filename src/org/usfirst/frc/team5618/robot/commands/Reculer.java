@@ -7,54 +7,54 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Reculer extends Command {
-	
+
 	double AutoSpeed;
 	double speed;
-	
-    public Reculer() {
-    	requires(Robot.chassis);
-    }
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    	Robot.chassis.encReset();
-    	Robot.chassis.resetGyro();
-    	AutoSpeed = SmartDashboard.getNumber("AutoSpd");
-    	speed = 0;
-    }
+	public Reculer() {
+		requires(Robot.chassis);
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	
-    	AutoSpeed = SmartDashboard.getNumber("AutoSpd");
-    	//Kp = CORRECTION
-    	double Kp = 0.03;
-    	
-    	if (Robot.chassis.spdEncoder() < (AutoSpeed - 0.001)) {
-    		speed = speed - 0.01;
-    	}
-    	if (Robot.chassis.spdEncoder() > (AutoSpeed + 0.001)) {
-    		speed = speed + 0.01;
-    	}
-    	    	
-    	SmartDashboard.putNumber("gyroAngle", Robot.chassis.valeurGyro());
-    	
-    	Robot.chassis.reculer(speed, (-Robot.chassis.valeurGyro() * Kp));
-    	Timer.delay(0.001);
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+		Robot.chassis.encReset();
+		Robot.chassis.resetGyro();
+		AutoSpeed = SmartDashboard.getNumber("AutoSpd");
+		speed = 0;
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return Robot.chassis.distEncoder() <= SmartDashboard.getNumber("AutoDist");
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
 
-    // Called once after isFinished returns true
-    protected void end() {
-    	Robot.chassis.stop();
-    }
+		AutoSpeed = SmartDashboard.getNumber("AutoSpd");
+		// Kp = CORRECTION
+		double Kp = 0.03;
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    }
+		if (Robot.chassis.spdEncoder() < (AutoSpeed - 0.001)) {
+			speed = speed - 0.01;
+		}
+		if (Robot.chassis.spdEncoder() > (AutoSpeed + 0.001)) {
+			speed = speed + 0.01;
+		}
+
+		SmartDashboard.putNumber("gyroAngle", Robot.chassis.valeurGyro());
+
+		Robot.chassis.reculer(speed, (-Robot.chassis.valeurGyro() * Kp));
+		Timer.delay(0.001);
+	}
+
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return Robot.chassis.distEncoder() <= SmartDashboard.getNumber("AutoDist");
+	}
+
+	// Called once after isFinished returns true
+	protected void end() {
+		Robot.chassis.stop();
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+	}
 }

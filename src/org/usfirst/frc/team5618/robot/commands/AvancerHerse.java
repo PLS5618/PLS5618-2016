@@ -5,11 +5,12 @@ import org.usfirst.frc.team5618.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/**
- *
- */
 public class AvancerHerse extends Command {
-	double speed = 0;
+
+	// h1 = premier step de hauteur
+	// h2 = deuxieme step de hauteur
+	int h1 = 900;
+	int h2 = 425;
 
 	public AvancerHerse() {
 		// Use requires() here to declare subsystem dependencies
@@ -25,21 +26,20 @@ public class AvancerHerse extends Command {
 		SmartDashboard.putBoolean("LimitPelleHerse", Robot.pelle.herseAcotee());
 
 		if (!Robot.pelle.limitPelleHerse.get()) {
-			if ((Robot.bras.distPot() > 1335)) {
+			// h1, h2 = hauteur pelle
+			if ((Robot.bras.distPot() > h1)) {
 				Robot.chassis.reculer(-0.4, 0);
-			} else if ((Robot.bras.distPot() > 1060) && !(Robot.bras.distPot() < 1335)) {
+			} else if ((Robot.bras.distPot() > h2) && !(Robot.bras.distPot() < h1)) {
 				Robot.chassis.reculer(-0.6, 0);
 			} else {
 				Robot.chassis.reculer(-0.9, 0);
 			}
 		}
-
 	}
-
-	// 1800
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
+		// boutton 5 = bumper gauche
 		return !Robot.oi.stick.getRawButton(5);
 	}
 
