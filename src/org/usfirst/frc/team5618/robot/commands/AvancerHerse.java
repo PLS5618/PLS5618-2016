@@ -9,8 +9,8 @@ public class AvancerHerse extends Command {
 
 	// h1 = premier step de hauteur
 	// h2 = deuxieme step de hauteur
-	int h1 = 900;
-	int h2 = 425;
+	int h1 = 950;
+	int h2 = 450;
 
 	public AvancerHerse() {
 		// Use requires() here to declare subsystem dependencies
@@ -19,14 +19,13 @@ public class AvancerHerse extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.chassis.drive.setSafetyEnabled(false);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		SmartDashboard.putBoolean("LimitPelleHerse", Robot.pelle.herseAcotee());
 
-		if (!Robot.pelle.limitPelleHerse.get()) {
+		if (!Robot.pelle.herseAcotee()) {
 			// h1, h2 = hauteur pelle
 			if ((Robot.bras.distPot() > h1)) {
 				Robot.chassis.reculer(-0.4, 0);
@@ -46,12 +45,10 @@ public class AvancerHerse extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.chassis.drive.setSafetyEnabled(true);
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-		Robot.chassis.drive.setSafetyEnabled(true);
 	}
 }
